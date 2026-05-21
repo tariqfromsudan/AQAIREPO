@@ -43,7 +43,7 @@ if uploaded_file is not None:
             bytes_data = uploaded_file.getvalue()
             upload_to_azure(uploaded_file.name, bytes_data)
             
-            result_json = wait_for_result(uploaded_file.name)
+            result_json = wait_for_result(uploaded_file.name, timeout=300)
             
             if result_json:
                 st.success("Pipeline execution complete.")
